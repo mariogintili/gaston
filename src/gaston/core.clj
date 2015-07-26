@@ -1,7 +1,11 @@
 (ns gaston.core
-  (:gen-class))
+  (:require [ring.adapter.jetty :as jetty]))
 
-(defn -main
+(defn request-handler [request]
+  {:status 200
+   :headers {"Content-Type" "text/plain"}
+   :body "Hello Clojure, Hello Ring!"})
+
+(defn -main []
   "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+  (jetty/run-jetty request-handler {:port 3000}))
