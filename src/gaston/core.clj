@@ -1,5 +1,6 @@
 (ns gaston.core
   (:require [ring.adapter.jetty :as jetty])
+  (:require [environ.core :refer [env]])
   (:use ring.middleware.params))
 
 (defn bootstrap-index [{query-params :query-params}]
@@ -15,6 +16,6 @@
    :body (bootstrap-index request)})
 
 
-(defn -main []
-  "I don't do a whole lot ... yet."
-  (jetty/run-jetty (wrap-params request-handler) {:port 3000}))
+(defn -main [& [port]]
+  (let [port (Integer. (or port (env :port) 5000))]
+    (jetty/run-jetty (wrap-params request-handler) {:port port :join? false})))
