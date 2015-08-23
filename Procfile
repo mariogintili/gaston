@@ -1,1 +1,1 @@
-web: java $JVM_OPTS -cp target/gaston-standalone.jar clojure.main -m gaston.web
+web: lein run
