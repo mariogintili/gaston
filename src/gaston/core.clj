@@ -9,12 +9,11 @@
   (def redis_key (get query-params "index_key" "current"))
   (str "<codecards>:" (str redis_key)))
 
-(def redis-connection {:pool {} :spec {:uri (or (env :redis-url) "redis://localhost:6379") }} )
+(def redis-connection {:pool {} :spec {:uri (env :redis-url)}})
 (defmacro wcar* [& body] `(car/wcar redis-connection ~@body))
 
 (defn request-handler [request]
   (def index_key (bootstrap-index request))
-  (def server-connection {})
   {:status 200
    :headers {"Content-Type" "text/plain"}
    :body (wcar* (car/get index_key))})
