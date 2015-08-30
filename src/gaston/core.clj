@@ -14,8 +14,9 @@
 
 (defn request-handler [request]
   (def index_key (bootstrap-index request))
+
   {:status 200
-   :headers {"Content-Type" "text/plain"}
+   :headers {"Content-Type" "text/html"}
    :body (wcar* (car/get index_key))})
 
 
