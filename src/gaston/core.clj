@@ -7,7 +7,7 @@
 (defn bootstrap-index [{query-params :query-params}]
   "Look for an index key, replace with 'current' if not found"
   (def redis_key (get query-params "index_key" "current"))
-  (str "<codecards>:" (str redis_key)))
+  (str "codecards:" (str redis_key)))
 
 (def redis-connection {:pool {} :spec {:uri (env :redis-url)}})
 (defmacro wcar* [& body] `(car/wcar redis-connection ~@body))
