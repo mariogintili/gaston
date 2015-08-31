@@ -8,7 +8,6 @@
 (defmacro wcar* [& body] `(car/wcar redis-connection ~@body))
 
 (defn bootstrap-index [{query-params :query-params}]
-  "Look for an index key, replace with 'current' if not found"
   (get query-params "index_key" (wcar* (car/get "codecards:current"))))
 
 
