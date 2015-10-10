@@ -8,7 +8,7 @@
 (defmacro wcar* [& body] `(car/wcar redis-connection ~@body))
 
 (defn bootstrap-index [{query-params :query-params}]
-  (get query-params "index_key" (wcar* (car/get "codecards:current"))))
+  (get query-params "index_key" (wcar* (car/get (str (env :project-name) ":current")))))
 
 
 (defn request-handler [request]
