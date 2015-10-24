@@ -1,13 +1,4 @@
 language: clojure
 script: PROJECT_NAME=ember-app-name lein test
-jdk:
-  - openjdk6
-  - openjdk7
-  - oraclejdk7
-  - oraclejdk8
-matrix:
-  allow_failures:
-    - oraclejdk7
-    - oraclejdk8
 services:
   - redis-server
