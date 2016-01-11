@@ -6,4 +6,4 @@ This is a small clojure server using redis as a data-store, purposed to be used 
 
 ## TODO
 
-- Add more test coverage
+- Add docs
