@@ -1,0 +1,7 @@
+{
+  "name": "Gaston",
+  "description": "A tiny Clojure powered server to serve your Ember-CLI apps",
+  "keywords": ["clojure", "ember", "ember-cli", "ember-cli-deploy"],
+  "repository": "https://github.com/mariogintili/gaston",
+  "addons": ["openredis"]
+}

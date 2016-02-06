@@ -4,7 +4,7 @@
   (:use ring.middleware.params)
   (:require [taoensso.carmine :as car :refer (wcar)]))
 
-(def redis-connection {:pool {} :spec {:uri (env :redis-url)}})
+(def redis-connection {:pool {} :spec {:uri (env :redis-uri)}})
 (defmacro wcar* [& body] `(car/wcar redis-connection ~@body))
 
 (defn bootstrap-index [{query-params :query-params}]
